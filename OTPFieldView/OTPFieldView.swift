@@ -268,8 +268,8 @@ extension OTPFieldView: UITextFieldDelegate {
             return false
         }
         
-        if string.count == fieldsCount {
-            for index in stride(from: 0, to: fieldsCount, by: 1) {
+        if string.count > 2 {
+            for index in stride(from: 0, to: min(string.count, fieldsCount), by: 1) {
                 let text = String(string[index])
                 secureEntryData[index] = text
                 var otpField = viewWithTag(index + 1) as? OTPTextField
